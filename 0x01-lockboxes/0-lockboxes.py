@@ -1,16 +1,29 @@
 #!/usr/bin/python3
-"""Unlock boxes"""
+"""Module for the canUnlockAll function"""
 
 
 def canUnlockAll(boxes):
-    """Function which checks if it can unlock all the boxes
     """
+    Check if all boxes can be opened using keys.
 
-    x = [0]
-    for a in x:
-        for boxKey in boxes[a]:
-            if boxKey not in x and boxKey < len(boxes):
-                x.append(boxKey)
-    if len(x) == len(boxes):
-        return True
-    return False
+    Args:
+    - boxes (List[List[int]]): List of lists where each inner list represents a box with keys to other boxes.
+
+    Returns:
+    - bool: True if all boxes can be opened, else False.
+    """
+    keys = {i: box for i, box in enumerate(boxes)}
+    keys_set = {0}
+    can_open = True
+
+    for key, value in keys.items():
+        for val in value:
+            if val != key:
+                keys_set.add(val)
+
+    for key in keys:
+        if key not in keys_set:
+            can_open = False
+
+    return can_open
+
