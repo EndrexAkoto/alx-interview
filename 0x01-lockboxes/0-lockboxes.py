@@ -7,7 +7,7 @@ def canUnlockAll(boxes):
     Check if all boxes can be opened using keys.
 
     Args:
-    - boxes (List[List[int]]): List of lists where each inner list represents a box with keys to other boxes.
+    - boxes (List[List[int]]): List where box with keys to other boxes is
 
     Returns:
     - bool: True if all boxes can be opened, else False.
@@ -26,4 +26,3 @@ def canUnlockAll(boxes):
             can_open = False
 
     return can_open
-
