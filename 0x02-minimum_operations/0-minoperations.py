@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     # Testing the function with the given examples
     n1 = 4
-    print("Min # of operations to reach {} char: {}".format(n1, minOperations(n1)))
+    print("Min operations reach {} char: {}".format(n1, minOperations(n1)))
 
     n2 = 12
-    print("Min # of operations to reach {} char: {}".format(n2, minOperations(n2)))
+    print("Min operations reach {} char: {}".format(n2, minOperations(n2)))
