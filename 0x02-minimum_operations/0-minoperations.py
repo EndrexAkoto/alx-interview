@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
-Calculates  fewest number needed to result in exactly n H characters in the file
+Calculates  few number needed, result in exactly n H characters in  file
 """
 
 
 def minOperations(n):
     """
-    Calculates fewest number of operations needed to result in exactly n H characters in the file
+    Calculates fewest number of operations needed 
 
     :param n: The target number of H characters.
     :type n: int
