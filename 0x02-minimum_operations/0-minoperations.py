@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
-Calculates the fewest number of operations needed to result in exactly n H characters in the file.
+Calculates  fewest number of operations needed to result in exactly n H characters in the file
 """
 
 def minOperations(n):
     """
-    Calculates the fewest number of operations needed to result in exactly n H characters in the file.
+    Calculates fewest number of operations needed to result in exactly n H characters in the file
 
     :param n: The target number of H characters.
     :type n: int
@@ -16,7 +16,7 @@ def minOperations(n):
     if n <= 1:
         return 0
 
-    # Initialize an array to store the minimum operations for each value
+    # Initialize array to store minimum operations for each value
     dp = [float('inf')] * (n + 1)
 
     # Base case: 0 operations needed to reach 1 H
@@ -27,10 +27,11 @@ def minOperations(n):
         # Check all factors of i
         for j in range(1, i):
             if i % j == 0:
-                # Update minimum operations based on copying from a previous value
+                # Update min operations based on copying from previous value
                 dp[i] = min(dp[i], dp[j] + i // j)
 
     return dp[n]
+
 
 if __name__ == "__main__":
 
