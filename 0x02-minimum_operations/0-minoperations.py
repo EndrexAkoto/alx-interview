@@ -12,6 +12,7 @@ def minOperations(n):
     :return: The minimum number of operations.
     :rtype: int
     """
+
     if n <= 1:
         return 0
 
@@ -32,6 +33,7 @@ def minOperations(n):
     return dp[n]
 
 if __name__ == "__main__":
+
     # Testing the function with the given examples
     n1 = 4
     print("Min # of operations to reach {} char: {}".format(n1, minOperations(n1)))
