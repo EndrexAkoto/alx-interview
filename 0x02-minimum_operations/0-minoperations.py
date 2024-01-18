@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-Calculates  fewest number of operations needed to result in exactly n H characters in the file
+Calculates  fewest number needed to result in exactly n H characters in the file
 """
+
 
 def minOperations(n):
     """
