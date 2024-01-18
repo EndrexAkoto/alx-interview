@@ -24,15 +24,12 @@ def minOperations(n):
     # Iterate from 2 to n
     for i in range(2, n + 1):
         # Check all factors of i
-        for j in range(2, int(i**0.5) + 1):
+        for j in range(1, i):
             if i % j == 0:
                 # Update minimum operations based on copying from a previous value
                 dp[i] = min(dp[i], dp[j] + i // j)
 
-                # Update minimum operations based on pasting from a previous value
-                dp[i] = min(dp[i], dp[i // j] + j)
-
-    return dp[n] if dp[n] != float('inf') else 0
+    return dp[n]
 
 if __name__ == "__main__":
     # Testing the function with the given examples
@@ -41,4 +38,3 @@ if __name__ == "__main__":
 
     n2 = 12
     print("Min # of operations to reach {} char: {}".format(n2, minOperations(n2)))
-
