@@ -7,7 +7,6 @@ Calculates  few number needed, result in exactly n H characters in  file
 def minOperations(n):
     """
     Calculates fewest number of operations needed
-    
     :param n: The target number of H characters.
     :type n: int
     :return: The minimum number of operations.
