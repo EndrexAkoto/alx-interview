@@ -3,6 +3,7 @@
 UTF-8 Validation
 """
 
+
 def validUTF8(data):
     """
     Determines given data set represents valid UTF-8 encoding
@@ -44,6 +45,7 @@ def validUTF8(data):
 
     # If there are remaining bytes at the end, it's an incomplete sequence
     return remaining_bytes == 0
+
 
 if __name__ == "__main__":
     # Test cases
