@@ -1,27 +1,28 @@
 #!/usr/bin/python3
 import sys
 
+
 def is_safe(board, row, col, N):
-    # Check if there is a queen in the same column
+# Check if there is a queen in the same column
     for i in range(row):
         if board[i][col] == 1:
             return False
-    
-    # Check upper diagonal on left side
+
+ # Check upper diagonal on left side
     for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
         if board[i][j] == 1:
             return False
-    
-    # Check upper diagonal on right side
+
+# Check upper diagonal on right side
     for i, j in zip(range(row, -1, -1), range(col, N)):
         if board[i][j] == 1:
             return False
-    
+
     return True
 
 def solve_nqueens(board, row, N, solutions):
     if row == N:
-        # Convert board to coordinates and add to solutions
+ # Convert board to coordinates and add to solutions
         solution = []
         for i in range(N):
             for j in range(N):
