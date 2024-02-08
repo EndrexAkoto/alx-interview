@@ -1,57 +1,64 @@
 #!/usr/bin/python3
-"""Solves the N queens problem"""
-
 import sys
 
+def is_safe(board, row, col, N):
+    # Check if there is a queen in the same column
+    for i in range(row):
+        if board[i][col] == 1:
+            return False
+    
+    # Check upper diagonal on left side
+    for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
+        if board[i][j] == 1:
+            return False
+    
+    # Check upper diagonal on right side
+    for i, j in zip(range(row, -1, -1), range(col, N)):
+        if board[i][j] == 1:
+            return False
+    
+    return True
 
-if (len(sys.argv) != 2):
-    print("Usage: nqueens N")
-    exit(1)
+def solve_nqueens(board, row, N, solutions):
+    if row == N:
+        # Convert board to coordinates and add to solutions
+        solution = []
+        for i in range(N):
+            for j in range(N):
+                if board[i][j] == 1:
+                    solution.append([i, j])
+        solutions.append(solution)
+        return
+    
+    for col in range(N):
+        if is_safe(board, row, col, N):
+            board[row][col] = 1
+            solve_nqueens(board, row + 1, N, solutions)
+            board[row][col] = 0
 
-try:
-    n = int(sys.argv[1])
-except ValueError:
-    print("N must be a number")
-    exit(1)
-if (n < 4):
-    print("N must be at least 4")
-    exit(1)
+def print_solutions(N):
+    if not isinstance(N, int):
+        print("N must be a number")
+        exit(1)
+    if N < 4:
+        print("N must be at least 4")
+        exit(1)
+    
+    board = [[0 for _ in range(N)] for _ in range(N)]
+    solutions = []
+    solve_nqueens(board, 0, N, solutions)
+    
+    for solution in solutions:
+        print(solution)
 
-
-def n_queens(n):
-    """Solves the N queens puzzle"""
-
-    columns = set()
-    down_diag = set()
-    up_diag = set()
-
-    result = []
-
-    def backtrack(board, row):
-        """performing backtrack algorithm"""
-        if row == n:
-            new_board = [[i, board[i]] for i in range(n)]
-            result.append(new_board)
-            return
-        for col in range(n):
-            if col in columns or \
-                (row + col) in down_diag or \
-                    (row - col) in up_diag:
-                continue
-
-            columns.add(col)
-            down_diag.add(col + row)
-            up_diag.add(row - col)
-            board[row] = col
-            backtrack(board, row + 1)
-            columns.remove(col)
-            down_diag.remove(col + row)
-            up_diag.remove(row - col)
-
-    backtrack([None] * n, 0)
-    return result
-
-
-solutions = n_queens(n)
-for s in solutions:
-    print(s)
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        exit(1)
+    
+    try:
+        N = int(sys.argv[1])
+        print_solutions(N)
+    except ValueError:
+        print("N must be a number")
+        exit(1)
