@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """
-Defines the function makeChange
+this module defines the function makeChange
 """
 
 
 def makeChange(coins, total):
     """
-    takes as arguments
+    this function takes as arguments
         coins: list of coins
-        total: the amout to meet using these coins
+        total: the amount to meet using these coins
     and return the fewest number of coins needed to reach total
     """
 
@@ -26,4 +26,3 @@ def makeChange(coins, total):
     if total == 0:
         return number_coins
     return -1
-    

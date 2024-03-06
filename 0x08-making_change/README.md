@@ -1,3 +1,2 @@
-0x08. Making Change
-Algorithm
-Python
+# 0x08. Making Change
+
