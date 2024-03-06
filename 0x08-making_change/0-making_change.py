@@ -26,3 +26,8 @@ def makeChange(coins, total):
     if total == 0:
         return number_coins
     return -1
+
+if __name__ == "__main__":
+    coins = [1, 2, 5]
+    total = 11
+    print(makeChange(coins, total))  # Expected output: 3
